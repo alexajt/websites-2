@@ -7,12 +7,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-          - text: Sources
+      - text: Sources
         menu:
           - href: source-1.qmd
             text: Source 1
           - href: source-2.qmd
-            text: Source 2 
+            text: Source 2
       - about.qmd
 
 
@@ -23,6 +23,5 @@ format:
       - brand
     css: styles.css
     toc: true
-
 
 
