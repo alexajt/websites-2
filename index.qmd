@@ -10,40 +10,40 @@ library(tidyverse)
 ```
 
 ```{r}
-billboard_long %>%
-  filter(track %in%
-    billboard_long %>%
-    group_by(track) %>%
-    summarise(best = min(rank)) %>%
-    slice_min(best, n = 15) %>%
-    pull(track)
-  ) %>%
-  
-  mutate(
-    week = readr::parse_number(week)
-  ) %>%
-  
+billboard_long <- billboard |>
+  pivot_longer(
+    cols = starts_with("wk"),
+    names_to = "week",
+    names_prefix = "wk",
+    values_to = "rank",
+    values_drop_na = TRUE
+  ) |>
+  mutate(week = readr::parse_number(week))
+
+top_hits <- billboard_long |>
+  group_by(track, artist) |>
+  summarise(best = min(rank), .groups = "drop") |>
+  slice_min(best, n = 15, with_ties = FALSE)
+
+billboard_long |>
+  semi_join(top_hits, by = c("track", "artist")) |>
   ggplot(
     aes(
       week,
       rank,
-      color = track
+      color = track,
+      group = interaction(track, artist)
     )
   ) +
-  
   geom_line(linewidth = 1.2) +
-  
   scale_y_reverse() +
-  
   labs(
     title = "Rise and Fall of Billboard Hits",
     subtitle = "Chart trajectories of top-performing songs",
     x = "Weeks on Chart",
     y = "Billboard Rank"
   ) +
-  
   theme_minimal(base_size = 14) +
-  
   theme(
     legend.position = "none",
     plot.title = element_text(face = "bold", size = 22)
