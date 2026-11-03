@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://alexajt.github.io/websites-2/source-1.html</loc>
+    <lastmod>2026-11-03T20:41:54.670Z</lastmod>
+  </url>
+  <url>
     <loc>https://alexajt.github.io/websites-2/index.html</loc>
-    <lastmod>2026-11-03T20:22:49.203Z</lastmod>
+    <lastmod>2026-11-03T20:55:06.008Z</lastmod>
   </url>
   <url>
     <loc>https://alexajt.github.io/websites-2/about.html</loc>
     <lastmod>2026-11-03T20:31:10.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexajt.github.io/websites-2/source-2.html</loc>
+    <lastmod>2026-11-03T20:41:54.681Z</lastmod>
   </url>
 </urlset>
